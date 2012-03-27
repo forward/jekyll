@@ -25,10 +25,6 @@ module Jekyll
     #
     # Returns nothing.
     def read_yaml(base, name)
-      STDOUT.puts "std1 [#{Time.now}] Parsing #{File.join(base, name)}"
-      $stdout.puts "std2 [#{Time.now}] Parsing #{File.join(base, name)}"
-      STDERR.puts "std3 [#{Time.now}] Parsing #{File.join(base, name)}"
-      puts "std4 [#{Time.now}] Parsing #{File.join(base, name)}"
       self.content = File.read(File.join(base, name))
 
       begin
@@ -37,6 +33,9 @@ module Jekyll
           self.data = YAML.load($1)
         end
       rescue => e
+        STDOUT.puts "STD OUT"
+        $stdout.puts "$stdout"
+        STDERR.puts "STDERR"
         puts "YAML Exception reading #{name}: #{e.message}"
       end
 
