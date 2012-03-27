@@ -259,7 +259,7 @@ else
     puts e.message
     exit(1)
   end
-  puts "Successfully generated site: #{source} -> #{destination}"
+  puts "Successfully generated site: #{source} -> #{destination}."
 end
 
 # Run the server on the specified port, if required

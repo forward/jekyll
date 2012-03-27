@@ -25,8 +25,10 @@ module Jekyll
     #
     # Returns nothing.
     def read_yaml(base, name)
-      STDOUT.puts "[#{Time.now}] Parsing #{File.join(base, name)}"
-      puts "[#{Time.now}] Parsing #{File.join(base, name)}"
+      STDOUT.puts "std1 [#{Time.now}] Parsing #{File.join(base, name)}"
+      STDERR.puts "std2 [#{Time.now}] Parsing #{File.join(base, name)}"
+      STDERR.puts "std3 [#{Time.now}] Parsing #{File.join(base, name)}"
+      puts "std4 [#{Time.now}] Parsing #{File.join(base, name)}"
       self.content = File.read(File.join(base, name))
 
       begin
