@@ -27,6 +27,9 @@ module Jekyll
     def read_yaml(base, name)
       self.content = File.read(File.join(base, name))
 
+      STDOUT.puts "STDOUT Parsing #{File.join(base, name)}"
+      $stdout.puts "$stdout Parsing #{File.join(base, name)}"
+      STDERR.puts "STDERR Parsing #{File.join(base, name)}"
       begin
         if self.content =~ /^(---\s*\n.*?\n?)^(---\s*$\n?)/m
           self.content = $POSTMATCH
